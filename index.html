@@ -727,7 +727,85 @@
                 grid-template-columns: 1fr;
             }
         }
+    .gift {
+    background:
+        linear-gradient(rgba(255,255,255,0.82), rgba(245,240,237,0.9)),
+        url('BG4.png') center/cover no-repeat;
+    padding: 64px 18px 52px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.gift h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.gift-text {
+    max-width: 320px;
+    margin: 0 auto 24px;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.gift-grid {
+    display: grid;
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.gift-card {
+    background: rgba(255,255,255,0.75);
+    border: 1px solid rgba(183,147,90,0.2);
+    border-radius: 20px;
+    padding: 20px 18px;
+    box-shadow: 0 10px 20px rgba(74, 68, 60, 0.05);
+}
+
+.bank-name {
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.account-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--navy);
+    margin-bottom: 8px;
+}
+
+.account-number {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--blue);
+    margin-bottom: 14px;
+}
+
+.copy-btn {
+    background: linear-gradient(135deg, #d9c8a5, #b7935a);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.copy-btn:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.02);
+}
+
+        
     </style>
+
+    
 </head>
 <body>
     <div class="page">
@@ -809,7 +887,7 @@
 
     <div class="location-card">
         <div class="location-info">
-            <h3>Musholah Al-Hijrah</h3>
+            <h3>Musala Al-Hijrah</h3>
             <p>Jl. Jordan Rt.05/03 Mampang, Pancoran Mas, Depok</p>
 
             <div class="cta-buttons">
@@ -882,11 +960,51 @@
         </div>
     </div>
 </section>
+
+        <section class="gift" id="gift">
+    <p class="eyebrow">LOVE GIFT</p>
+    <h2>Hadiah Pernikahan</h2>
+    <p class="gift-text">
+        Kehadiran dan doa Anda adalah anugerah terbesar bagi kami.
+        Jika Bapak/Ibu/Saudara/i ingin memberikan hadiah, silakan transfer melalui rekening berikut:
+    </p>
+
+    <div class="gift-grid">
+        <div class="gift-card">
+            <div class="bank-name">BCA</div>
+            <div class="account-name">DEVIANA RAHAYU ANGGIA</div>
+            <div class="account-number" id="rek-bca">1234567890</div>
+            <button class="copy-btn" type="button" onclick="copyText('1234567890')">
+                Salin Rekening
+            </button>
+        </div>
+
+        <div class="gift-card">
+            <div class="bank-name">MANDIRI</div>
+            <div class="account-name">BAYU PRATIKNO</div>
+            <div class="account-number" id="rek-mandiri">0987654321</div>
+            <button class="copy-btn" type="button" onclick="copyText('0987654321')">
+                Salin Rekening
+            </button>
+        </div>
+    </div>
+</section>
         
         <section class="cta" id="rsvp">
             <p>Doa dan kehadiran Anda adalah kebahagiaan terbesar bagi kami.</p>
         </section>
 
+        <script>
+    function copyText(value) {
+        navigator.clipboard.writeText(value)
+            .then(() => {
+                alert('Nomor rekening berhasil disalin: ' + value);
+            })
+            .catch(() => {
+                alert('Silakan salin nomor rekening secara manual: ' + value);
+            });
+    }
+</script>
 
         <!-- Elemen Gallery -->
 <script>
