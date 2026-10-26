@@ -728,8 +728,9 @@
             }
         }
     .gift {
+    position: relative;
     background:
-        linear-gradient(rgba(255,255,255,0.82), rgba(245,240,237,0.9)),
+        linear-gradient(rgba(255,255,255,0.86), rgba(245,240,237,0.92)),
         url('BG4.png') center/cover no-repeat;
     padding: 64px 18px 52px;
     border-top: 1px solid var(--line);
@@ -742,67 +743,130 @@
 }
 
 .gift-text {
-    max-width: 320px;
-    margin: 0 auto 24px;
+    max-width: 330px;
+    margin: 0 auto 26px;
     color: var(--muted);
     font-size: 0.9rem;
 }
 
-.gift-grid {
+.gift-list {
     display: grid;
-    gap: 16px;
+    gap: 18px;
     margin-top: 18px;
 }
 
 .gift-card {
-    background: rgba(255,255,255,0.75);
+    background: rgba(255,255,255,0.72);
     border: 1px solid rgba(183,147,90,0.2);
-    border-radius: 20px;
+    border-radius: 24px;
     padding: 20px 18px;
-    box-shadow: 0 10px 20px rgba(74, 68, 60, 0.05);
+    box-shadow: 0 14px 30px rgba(60, 48, 39, 0.05);
+    backdrop-filter: blur(2px);
 }
 
-.bank-name {
-    font-size: 0.72rem;
+.bank-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(183,147,90,0.16);
+}
+
+.bank-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: white;
+    box-shadow: 0 10px 18px rgba(0,0,0,0.08);
+}
+
+.bank-bca {
+    background: linear-gradient(135deg, #1e4d9b, #2b6fe2);
+}
+
+.bank-ovo {
+    background: linear-gradient(135deg, #7c4dff, #4b2ac6);
+}
+
+.bank-dana {
+    background: linear-gradient(135deg, #0aa8d8, #0d7fb3);
+}
+
+.bank-gopay {
+    background: linear-gradient(135deg, #00a5cf, #00c2a8);
+}
+
+.bank-spay {
+    background: linear-gradient(135deg, #f26c5b, #e45242);
+}
+
+.bank-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.bank-label {
+    font-size: 0.62rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--gold-dark);
-    font-weight: 700;
-    margin-bottom: 10px;
+    color: var(--muted);
 }
 
-.account-name {
-    font-family: 'Playfair Display', serif;
+.bank-meta strong {
     font-size: 1.2rem;
     color: var(--navy);
-    margin-bottom: 8px;
+    font-family: 'Playfair Display', serif;
 }
 
-.account-number {
-    font-size: 1.15rem;
+.account-box {
+    background: rgba(247,241,238,0.8);
+    border: 1px solid rgba(183,147,90,0.18);
+    border-radius: 14px;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.account-box .label {
+    display: block;
+    font-size: 0.65rem;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+}
+
+.account-box strong {
+    color: var(--navy);
+    font-size: 1.02rem;
     font-weight: 700;
-    letter-spacing: 1px;
-    color: var(--blue);
-    margin-bottom: 14px;
+    line-height: 1.5;
 }
 
 .copy-btn {
+    width: 100%;
+    border: none;
     background: linear-gradient(135deg, #d9c8a5, #b7935a);
     color: white;
-    border: none;
     border-radius: 999px;
-    padding: 10px 20px;
+    padding: 12px 18px;
     font-weight: 600;
     cursor: pointer;
-    transition: 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 10px 20px rgba(183,147,90,0.22);
 }
 
 .copy-btn:hover {
     transform: translateY(-1px);
     filter: brightness(1.02);
-}
-
-        
+} 
     </style>
 
     
@@ -961,40 +1025,79 @@
     </div>
 </section>
 
-        <section class="gift" id="gift">
+      <section class="gift" id="gift">
     <p class="eyebrow">LOVE GIFT</p>
     <h2>Hadiah Pernikahan</h2>
+
     <p class="gift-text">
-        Kehadiran dan doa Anda adalah anugerah terbesar bagi kami.
-        Jika Bapak/Ibu/Saudara/i ingin memberikan hadiah, silakan transfer melalui rekening berikut:
+        Kehadiran dan doa Anda adalah kebahagiaan terbesar bagi kami.
     </p>
 
-    <div class="gift-grid">
+    <div class="gift-list">
         <div class="gift-card">
-            <div class="bank-name">BCA</div>
-            <div class="account-name">DEVIANA RAHAYU ANGGIA</div>
-            <div class="account-number" id="rek-bca">1234567890</div>
-            <button class="copy-btn" type="button" onclick="copyText('1234567890')">
+            <div class="bank-header">
+                <div class="bank-icon bank-bca">B</div>
+                <div class="bank-meta">
+                    <span class="bank-label">Bank</span>
+                    <strong>BCA</strong>
+                </div>
+            </div>
+
+            <div class="account-box">
+                <span class="label">Atas Nama</span>
+                <strong>Deviana Rahayu Anggia</strong>
+            </div>
+
+            <div class="account-box">
+                <span class="label">No. Rekening</span>
+                <strong>6560061402</strong>
+            </div>
+
+            <button class="copy-btn" type="button" onclick="copyText('6560061402')">
                 Salin Rekening
             </button>
         </div>
 
         <div class="gift-card">
-            <div class="bank-name">MANDIRI</div>
-            <div class="account-name">BAYU PRATIKNO</div>
-            <div class="account-number" id="rek-mandiri">0987654321</div>
-            <button class="copy-btn" type="button" onclick="copyText('0987654321')">
+            <div class="bank-header">
+                <div class="bank-icon bank-BRI">B</div>
+                <div class="bank-meta">
+                    <span class="bank-label">Bank</span>
+                    <strong>MANDIRI</strong>
+                </div>
+            </div>
+
+            <div class="account-box">
+                <span class="label">Atas Nama</span>
+                <strong>Bayu Pratikno</strong>
+            </div>
+
+            <div class="account-box">
+                <span class="label">No. Rekening</span>
+                <strong>696201023692531</strong>
+            </div>
+
+            <button class="copy-btn" type="button" onclick="copyText('696201023692531')">
                 Salin Rekening
             </button>
         </div>
     </div>
+         <div class="gift-row">
+            <div class="payment-brand brand-gopay">GoPay</div>
+            <div class="payment-detail">
+                <span>GoPay</span>
+                <strong>08975706658</strong>
+            </div>
+            <button type="button" class="copy-btn" onclick="copyText('08975706658')">Copy</button>
+        </div>
+          
 </section>
         
         <section class="cta" id="rsvp">
             <p>Doa dan kehadiran Anda adalah kebahagiaan terbesar bagi kami.</p>
         </section>
 
-        <script>
+       <script>
     function copyText(value) {
         navigator.clipboard.writeText(value)
             .then(() => {
