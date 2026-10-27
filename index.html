@@ -467,11 +467,12 @@
 
         .event {
             position: relative;
-            background:
+             background-image:
                 linear-gradient(rgba(249, 245, 242, 0.82), rgba(245, 240, 237, 0.86)),
-                url(--event-bg) center/cover no-repeat;
-            padding: 64px 18px 52px;
-            overflow: hidden;
+                url('BG3.png');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
         }
 
         .event h2 {
@@ -609,15 +610,15 @@
 }
 
         .location {
-            background:
+            .location {
+            background-image:
                 linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.72)),
-                url('BG3.png') center/cover no-repeat;
-            padding: 64px 18px 52px;
-            overflow: hidden;
-             border-top: 1px solid var(--line);
-            border-bottom: 1px solid var(--line);
-        }
-
+            url('BG4.png');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+}
+        
         .location h2 {
             font-size: 2rem;
             margin-bottom: 18px;
@@ -732,10 +733,12 @@
         }
     .gift {
     position: relative;
-    background:
+    background-image:
         linear-gradient(rgba(255,255,255,0.82), rgba(245,240,237,0.92)),
-        var(--gift-bg) center/cover no-repeat,
-        var(--gift-image) center/cover no-repeat;
+        url('BG2.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     padding: 64px 18px 52px;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
