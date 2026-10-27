@@ -767,7 +767,56 @@
     padding: 18px 16px 12px;
     box-shadow: 0 16px 30px rgba(60, 48, 39, 0.05);
 }
+.gift-row {
+    display: grid;
+    grid-template-columns: 72px 1fr auto;
+    align-items: center;
+    gap: 12px;
+    background: rgba(247,241,238,0.8);
+    border: 1px solid rgba(183,147,90,0.16);
+    border-radius: 16px;
+    padding: 10px 10px;
+    margin: 16px auto 0;
+    max-width: 420px;
+}
 
+.payment-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 62px;
+    height: 38px;
+    border-radius: 10px;
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.brand-bca { background: linear-gradient(135deg, #1e4d9b, #2b6fe2); }
+.brand-ovo { background: linear-gradient(135deg, #7c4dff, #4b2ac6); }
+.brand-dana { background: linear-gradient(135deg, #0aa8d8, #0d7fb3); }
+.brand-gopay { background: linear-gradient(135deg, #00a5cf, #00c2a8); }
+.brand-spay { background: linear-gradient(135deg, #f26c5b, #e45242); }
+
+.payment-detail {
+    text-align: left;
+}
+
+.payment-detail span {
+    display: block;
+    font-size: 0.62rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 3px;
+}
+
+.payment-detail strong {
+    color: var(--navy);
+    font-size: 0.98rem;
+    line-height: 1.5;
+}
 .bank-header {
     display: flex;
     align-items: center;
