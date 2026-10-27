@@ -25,6 +25,8 @@
             --ivory-2: #f3eee9;
             --dusty: #bcced9;
             --gallery-bg: url('BG3.png');
+            --gift-bg: #f5efe9;
+            --gift-image: url('BG2.jpg');
         }
 
         * {
@@ -485,16 +487,16 @@
         }
 
         .event-box {
-            background: var(--soft);
-            border-radius: 22px;
-            border: 1px solid var(--line);
+            background: rgba(255,255,255,0.72);
+            border: 1px solid rgba(183,147,90,0.2);
+            border-radius: 24px;
             padding: 22px 18px;
-            box-shadow: 0 12px 25px rgba(74, 68, 60, 0.05);
+            box-shadow: 0 14px 30px rgba(60, 48, 39, 0.05);
         }
 
         .event-box h3 {
             font-size: 1.5rem;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             color: var(--gold-dark);
         }
 
@@ -610,7 +612,7 @@
         .location {
             background:
                 linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.72)),
-                url('BG2.jpg') center/cover no-repeat;
+                url('BG1.png') center/cover no-repeat;
             padding: 64px 18px 52px;
             overflow: hidden;
         }
@@ -730,8 +732,9 @@
     .gift {
     position: relative;
     background:
-        linear-gradient(rgba(255,255,255,0.86), rgba(245,240,237,0.92)),
-        url('BG4.png') center/cover no-repeat;
+        linear-gradient(rgba(255,255,255,0.82), rgba(245,240,237,0.92)),
+        var(--gift-bg) center/cover no-repeat,
+        var(--gift-image) center/cover no-repeat;
     padding: 64px 18px 52px;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
@@ -1029,10 +1032,6 @@
     <p class="eyebrow">LOVE GIFT</p>
     <h2>Hadiah Pernikahan</h2>
 
-    <p class="gift-text">
-        Kehadiran dan doa Anda adalah kebahagiaan terbesar bagi kami.
-    </p>
-
     <div class="gift-list">
         <div class="gift-card">
             <div class="bank-header">
@@ -1083,9 +1082,8 @@
         </div>
     </div>
          <div class="gift-row">
-            <div class="payment-brand brand-gopay">GoPay</div>
             <div class="payment-detail">
-                <span>GoPay</span>
+                <span>GoPay, Spay, Dana</span>
                 <strong>08975706658</strong>
             </div>
             <button type="button" class="copy-btn" onclick="copyText('08975706658')">Copy</button>
