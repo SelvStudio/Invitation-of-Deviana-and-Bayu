@@ -47,8 +47,8 @@
             color: var(--text);
             min-height: 100vh;
         
-    
-            overflow: hidden; /* Mengunci scroll di awal saat cover aktif */
+            overflow-x: hidden
+            overflow-y: auto; /* Mengunci scroll di awal saat cover aktif */
         }
         
     
@@ -511,8 +511,6 @@
             color: var(--muted);
             font-size: 0.9rem;
         }*/
-        .event-grid {
-    disp
 
 .event-date-row {
     display: grid;
@@ -608,8 +606,6 @@
         font-size: 2.4rem;
     }
 }
-
-        .location {
             .location {
             background-image:
                 linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.72)),
@@ -766,6 +762,57 @@
     padding: 20px 18px;
     box-shadow: 0 14px 30px rgba(60, 48, 39, 0.05);
     backdrop-filter: blur(2px);
+}
+.gift .eyebrow {
+  letter-spacing: 6px;
+  font-size: 0.8rem;
+  color: #5f89b1;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.gift h2 {
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  color: #5f89b1;
+  margin-bottom: 20px;
+  font-family: 'Playfair Display', serif;
+}
+
+.gift-bank {
+  display: grid;
+  gap: 18px;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.bank-item {
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(183,147,90,0.2);
+  border-radius: 18px;
+  padding: 20px 18px;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.04);
+}
+
+.bank-item h3 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: #5f89b1;
+  font-family: 'Playfair Display', serif;
+}
+
+.label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  color: #7b7b7b;
+  margin: 8px 0 4px;
+}
+
+.value {
+  font-size: 1.05rem;
+  color: #2a4055;
+  font-weight: 600;
+  line-height: 1.6;
 }
 
 .bank-header {
@@ -1033,7 +1080,6 @@
     <p class="eyebrow">LOVE GIFT</p>
     <h2>Hadiah Pernikahan</h2>
 
-          
     <div class="gift-list">
         <div class="gift-card">
             <div class="bank-header">
@@ -1059,81 +1105,48 @@
             </button>
         </div>
 
-         <div class="gift-list">
-        <div class="gift-card">
-            <div class="bank-header">
-                <div class="bank-icon bank-bri">BRI</div>
-                <div class="bank-meta">
-                    <span class="bank-label">Bank</span>
-                    <strong>BRI</strong>
-                </div>
-            </div>
+        <section class="gift" id="gift">
+  <p class="eyebrow">LOVE GIFT</p>
+  <h2>Hadiah Pernikahan</h2>
 
-            <div class="account-box">
-                <span class="label">Atas Nama</span>
-                <strong>Bayu Pratikno</strong>
-            </div>
+  <div class="gift-bank">
+    <div class="bank-item">
+      <h3>Bank BCA</h3>
+      <p class="label">Atas Nama</p>
+      <p class="value">Deviana Rahayu Anggia</p>
+      <p class="label">No. Rekening</p>
+      <p class="value">6560061402</p>
+      <button class="copy-btn" type="button" data-copy="6560061402">Salin Rekening</button>
+    </div>
 
-            <div class="account-box">
-                <span class="label">No. Rekening</span>
-                <strong>696201023692531</strong>
-            </div>
+    <div class="bank-item">
+      <h3>Bank BRI</h3>
+      <p class="label">Atas Nama</p>
+      <p class="value">Bayu Pratikno</p>
+      <p class="label">No. Rekening</p>
+      <p class="value">696201023692531</p>
+      <button class="copy-btn" type="button" data-copy="696201023692531">Salin Rekening</button>
+    </div>
 
-            <button class="copy-btn" type="button" onclick="copyText('696201023692531')">
-                Salin Rekening
-            </button>
-        </div>
+    <div class="bank-item">
+      <h3>E-Wallet OVO</h3>
+      <p class="label">Atas Nama</p>
+      <p class="value">Deviana Rahayu Anggia</p>
+      <p class="label">No. HP / ID</p>
+      <p class="value">08975706658</p>
+      <button class="copy-btn" type="button" data-copy="08975706658">Salin Nomor</button>
+    </div>
 
-        <div class="gift-card">
-            <div class="bank-header">
-                <div class="bank-icon bank-ovo">O</div>
-                <div class="bank-meta">
-                    <span class="bank-label">E-Wallet</span>
-                    <strong>OVO</strong>
-                </div>
-            </div>
-
-            <div class="account-box">
-                <span class="label">Atas Nama</span>
-                <strong>Deviana Rahayu Anggia</strong>
-            </div>
-
-            <div class="account-box">
-                <span class="label">No. HP / ID</span>
-                <strong>08975706658</strong>
-            </div>
-
-            <button class="copy-btn" type="button" onclick="copyText('08975706658')">
-                Salin Nomor
-            </button>
-        </div>
-
-        <div class="gift-card">
-            <div class="bank-header">
-                <div class="bank-icon bank-dana">D</div>
-                <div class="bank-meta">
-                    <span class="bank-label">E-Wallet</span>
-                    <strong>DANA</strong>
-                </div>
-            </div>
-
-            <div class="account-box">
-                <span class="label">Atas Nama</span>
-                <strong>Deviana Rahayu</strong>
-            </div>
-
-            <div class="account-box">
-                <span class="label">No. HP / ID</span>
-                <strong>08975706658</strong>
-            </div>
-
-            <button class="copy-btn" type="button" onclick="copyText('08975706658')">
-                Salin Nomor
-            </button>
-        </div>
-         </div>
-         </section>
-        
+    <div class="bank-item">
+      <h3>E-Wallet DANA</h3>
+      <p class="label">Atas Nama</p>
+      <p class="value">Deviana Rahayu</p>
+      <p class="label">No. HP / ID</p>
+      <p class="value">08975706658</p>
+      <button class="copy-btn" type="button" data-copy="08975706658">Salin Nomor</button>
+    </div>
+  </div>
+</section>
         <section class="cta" id="rsvp">
             <p>Doa dan kehadiran Anda adalah kebahagiaan terbesar bagi kami.</p>
         </section>
