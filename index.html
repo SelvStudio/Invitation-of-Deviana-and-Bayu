@@ -1033,7 +1033,7 @@
     <p class="eyebrow">LOVE GIFT</p>
     <h2>Hadiah Pernikahan</h2>
 
-
+          
     <div class="gift-list">
         <div class="gift-card">
             <div class="bank-header">
@@ -1131,69 +1131,23 @@
                 Salin Nomor
             </button>
         </div>
-
-        <div class="gift-card">
-            <div class="bank-header">
-                <div class="bank-icon bank-gopay">G</div>
-                <div class="bank-meta">
-                    <span class="bank-label">E-Wallet</span>
-                    <strong>GoPay</strong>
-                </div>
-            </div>
-
-            <div class="account-box">
-                <span class="label">Atas Nama</span>
-                <strong>Deviana Rahayu</strong>
-            </div>
-
-            <div class="account-box">
-                <span class="label">No. HP / ID</span>
-                <strong>08975706658</strong>
-            </div>
-
-            <button class="copy-btn" type="button" onclick="copyText('08975706658')">
-                Salin Nomor
-            </button>
-        </div>
-
-        <div class="gift-card">
-            <div class="bank-header">
-                <div class="bank-icon bank-spay">S</div>
-                <div class="bank-meta">
-                    <span class="bank-label">E-Wallet</span>
-                    <strong>ShopeePay</strong>
-                </div>
-            </div>
-
-            <div class="account-box">
-                <span class="label">Atas Nama</span>
-                <strong>Deviana Rahayu Anggia</strong>
-            </div>
-
-            <div class="account-box">
-                <span class="label">No. HP / ID</span>
-                <strong>08975706658</strong>
-            </div>
-
-            <button class="copy-btn" type="button" onclick="copyText('08975706658')">
-                Salin Nomor
-            </button>
-        </div>
-    </div>
-</section>
+         </div>
+         </section>
         
         <section class="cta" id="rsvp">
             <p>Doa dan kehadiran Anda adalah kebahagiaan terbesar bagi kami.</p>
         </section>
 
-       <script>
+      <script>
     function copyText(value) {
-        navigator.clipboard.writeText(value)
+        const text = String(value).replace(/[^0-9]/g, '');
+
+        navigator.clipboard.writeText(text)
             .then(() => {
-                alert('Nomor rekening berhasil disalin: ' + value);
+                alert('Nomor berhasil disalin: ' + text);
             })
             .catch(() => {
-                alert('Silakan salin nomor rekening secara manual: ' + value);
+                alert('Silakan salin nomor secara manual: ' + text);
             });
     }
 </script>
