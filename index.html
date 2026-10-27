@@ -753,7 +753,12 @@
     font-size: 0.9rem;
 }
 
-.gift-box {
+.gift-list {
+    display: grid;
+    gap: 16px;
+}
+
+.gift-card {
     max-width: 420px;
     margin: 0 auto;
     background: rgba(255,255,255,0.76);
@@ -763,7 +768,7 @@
     box-shadow: 0 16px 30px rgba(60, 48, 39, 0.05);
 }
 
-.gift-header {
+.bank-header {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -772,7 +777,7 @@
     margin-bottom: 14px;
 }
 
-.gift-badge {
+.bank-icon {
     width: 44px;
     height: 44px;
     border-radius: 12px;
@@ -783,16 +788,25 @@
     color: white;
     font-weight: 700;
     font-size: 0.8rem;
+    overflow: hidden;
 }
 
-.gift-header strong {
+.bank-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.bank-meta strong {
     display: block;
     font-family: 'Playfair Display', serif;
     color: var(--navy);
     font-size: 1.2rem;
 }
 
-.gift-label {
+.bank-label,
+.label {
     display: block;
     font-size: 0.62rem;
     letter-spacing: 1.8px;
@@ -801,7 +815,7 @@
     margin-bottom: 4px;
 }
 
-.gift-row {
+.account-box {
     display: grid;
     grid-template-columns: 72px 1fr auto;
     align-items: center;
@@ -813,39 +827,7 @@
     margin-bottom: 10px;
 }
 
-.payment-brand {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 62px;
-    height: 38px;
-    border-radius: 10px;
-    color: white;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-}
-
-.brand-bca { background: linear-gradient(135deg, #1e4d9b, #2b6fe2); }
-.brand-ovo { background: linear-gradient(135deg, #7c4dff, #4b2ac6); }
-.brand-dana { background: linear-gradient(135deg, #0aa8d8, #0d7fb3); }
-.brand-gopay { background: linear-gradient(135deg, #00a5cf, #00c2a8); }
-.brand-spay { background: linear-gradient(135deg, #f26c5b, #e45242); }
-
-.payment-detail {
-    text-align: left;
-}
-
-.payment-detail span {
-    display: block;
-    font-size: 0.62rem;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 3px;
-}
-
-.payment-detail strong {
+.account-box strong {
     color: var(--navy);
     font-size: 0.98rem;
     line-height: 1.5;
@@ -1033,7 +1015,9 @@
     <div class="gift-list">
         <div class="gift-card">
             <div class="bank-header">
-                <div class="bank-icon bank-bca"><img src="BCA.png" alt="ATM" /></div>
+                <div class="bank-icon bank-bca">
+                    <img src="BCA.png" alt="BCA" />
+                </div>
                 <div class="bank-meta">
                     <span class="bank-label">Bank</span>
                     <strong>BCA</strong>
@@ -1057,7 +1041,9 @@
 
         <div class="gift-card">
             <div class="bank-header">
-                <div class="bank-icon bank-BRI"> <img src="BRI.png" alt="ATM" /></div>
+                <div class="bank-icon bank-bri">
+                    <img src="BRI.png" alt="BRI" />
+                </div>
                 <div class="bank-meta">
                     <span class="bank-label">Bank</span>
                     <strong>BRI</strong>
@@ -1079,14 +1065,17 @@
             </button>
         </div>
     </div>
-         <div class="gift-row">
-              <div class="Lebel">GoPay, Shopee &amp; Dana</div>
-            <div class="payment-detail">
-                <strong>08975706658</strong>
-            </div>
-            <button type="button" class="copy-btn" onclick="copyText('08975706658')">Copy</button>
+
+    <div class="gift-row">
+        <div class="payment-brand brand-bca">BCA</div>
+        <div class="payment-detail">
+            <span>GoPay, Shopee &amp; Dana</span>
+            <strong>08975706658</strong>
         </div>
-          
+        <button class="copy-btn" type="button" onclick="copyText('08975706658')">
+            Copy
+        </button>
+    </div>
 </section>
         
         <section class="cta" id="rsvp">
