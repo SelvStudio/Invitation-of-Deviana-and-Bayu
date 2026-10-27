@@ -468,7 +468,7 @@
         .event {
             position: relative;
              background-image:
-                linear-gradient(rgba(249, 245, 242, 0.82), rgba(245, 240, 237, 0.86)),
+                linear-gradient(rgba(255,255,255,0.45), rgba(249,245,242,0.7)),
                 url('BG3.png');
             background-position: center;
             background-size: cover;
@@ -730,8 +730,9 @@
  .gift {
     position: relative;
     background:
-        linear-gradient(rgba(255,255,255,0.86), rgba(245,240,237,0.92)),
-        url('BG4.png') center/cover no-repeat;
+        linear-gradient(rgba(255,255,255,0.45), rgba(249,245,242,0.7)),
+        var(--gift-bg) center/cover no-repeat,
+        var(--gift-image) center/cover no-repeat;
     padding: 64px 18px 52px;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
@@ -1136,7 +1137,7 @@
                 <div class="bank-icon bank-ovo">ALL</div>
                 <div class="bank-meta">
                     <span class="bank-label">E-Wallet</span>
-                    <strong>OVO, SHOPEEPAY, GOPAY</strong>
+                    <strong>OVO, DANA, GOPAY</strong>
                 </div>
             </div>
 
