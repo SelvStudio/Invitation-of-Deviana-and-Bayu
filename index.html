@@ -936,14 +936,14 @@
     transform: translateY(-1px);
     filter: brightness(1.02);
 }
-        section {
+       section {
     opacity: 0;
-    transform: translateY(24px) scale(0.995);
-    filter: blur(1.5px);
+    transform: translateY(28px) scale(0.985);
+    filter: blur(3px);
     transition:
-        opacity 1.2s ease,
-        transform 1.2s ease,
-        filter 1.2s ease;
+        opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.9s ease;
     will-change: opacity, transform, filter;
 }
 
