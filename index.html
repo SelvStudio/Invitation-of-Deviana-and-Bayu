@@ -936,6 +936,22 @@
     transform: translateY(-1px);
     filter: brightness(1.02);
 }
+        section {
+    opacity: 0;
+    transform: translateY(24px) scale(0.995);
+    filter: blur(1.5px);
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease,
+        filter 1.2s ease;
+    will-change: opacity, transform, filter;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
     </style>
 
     
@@ -970,6 +986,7 @@
             <p></p>
             <p class="hero-signature">By : SelvStudio</p>
         </section>
+
 
         <section class="family" id="family">
             <div class="luxury-card">
@@ -1192,6 +1209,29 @@
     }
 </script>
 
+        
+<!--Transisi-->
+        
+        <script>
+  const sections = document.querySelectorAll('section');
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.12
+  });
+
+  sections.forEach((section, index) => {
+    section.style.transitionDelay = `${index * 110}ms`;
+    revealObserver.observe(section);
+  });
+</script>
+
+        
         <!-- Elemen Gallery -->
 <script>
     const storyTrack = document.getElementById('storyTrack');
