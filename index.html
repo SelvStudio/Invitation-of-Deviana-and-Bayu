@@ -693,6 +693,10 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
+            display: inline-block;
+            padding: 8px 18px;
+            font-size: 0.8rem;
+            border-radius: 18px;
 
             
         }
@@ -1010,17 +1014,12 @@
         <section class="location" id="location">
     <h2>Lokasi</h2>
 
-    <div class="location-card">
-        <div class="location-info">
-            <h3>Musala Al-Hijrah</h3>
-            <p>Jl. Jordan Rt.05/03 Mampang, Pancoran Mas, Depok</p>
-
-            <div class="cta-buttons">
+      <div class="cta-buttons">
                 <a href="https://www.google.com/maps/place/KOMPLEK+JORDAN/data=!4m2!3m1!1s0x2e69e94ec70391c3:0x9632515692ac7fe1!18m1!1e1?utm_source=mstt_1&entry=gps&coh=192189&g_ep=CAESBzI2LjQzLjE0Ny4xLjA" 
-                   class="location-btn"> Buka Maps
+                   class="btn" target="_blank" rel="noopener noreferrer">
+                    Buka Maps
                 </a>
-            </div>
-        </div>
+      </div>
 
         <div class="location-map-wrap">
             <iframe
