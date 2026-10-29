@@ -971,6 +971,16 @@ section.visible {
     transform: translateY(0) scale(1);
     filter: blur(0);
 }
+.reveal-text.left {
+    transform: translateX(-20px);
+}
+.reveal-text.right {
+    transform: translateX(20px);
+}
+.reveal-text.scale {
+    transform: scale(0.98);
+}
+        
     </style>
 
     
@@ -1011,10 +1021,10 @@ section.visible {
             <div class="luxury-card">
                 <div class="monogram">D&amp;B</div>
                 <div class="bismillah">بِسْمِ ٱللّٰهِ الرَّحْمٰنِ الرَّحِيمِ</div>
-                <p class="greeting">Assalamu'alaikum warohmatullahi wabarokatuh</p>
-                <p class="invite">Dengan ini kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada pernikahan putra dan putri kami</p>
+                <p class="greeting"> <p class="reveal-text scale">Assalamu'alaikum warohmatullahi wabarokatuh</p>
+                <p class="invite"> <p class="reveal-text scale">Dengan ini kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada pernikahan putra dan putri kami</p>
 
-                <div class="script-name">Deviana Rahayu Anggia</div>
+                <div class="script-name" class="reveal-text scale">Deviana Rahayu Anggia</div>
                 <p class="parents">Putri kedua dari Bapak Jan Piter Hongrius &amp; <br> Ibu Sri Hartini </p>
 
                 <div class="and">&amp;</div>
@@ -1246,6 +1256,25 @@ section.visible {
 
   sections.forEach((section) => {
     revealObserver.observe(section);
+  });
+</script>
+
+        <script>
+  const revealText = document.querySelectorAll('.reveal-text');
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  revealText.forEach((el, index) => {
+    el.style.transitionDelay = `${index * 100}ms`;
+    revealObserver.observe(el);
   });
 </script>
         
