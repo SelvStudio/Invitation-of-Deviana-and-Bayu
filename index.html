@@ -1473,5 +1473,46 @@ section.visible {
 
     // ... (Fungsi bukaUndangan dan toggleMusic tetap di bawahnya)
 </script>
+    <script>
+// 1. Fungsi membuat ID Unik Perangkat Sederhana (Fingerprint)
+function getSimpleDeviceId() {
+    let id = localStorage.getItem('wedding_device_id');
+    if (!id) {
+        id = 'dev_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
+        localStorage.setItem('wedding_device_id', id);
+    }
+    return id;
+}
+
+// 2. Ambil parameter nama tamu dari URL (contoh: undangan.html?to=Budi)
+const urlParams = new URLSearchParams(window.location.search);
+const namaTamu = urlParams.get('to'); 
+const deviceId = getSimpleDeviceId();
+
+// Ganti dengan URL Aplikasi Web dari Google Apps Script Langkah 2
+const webAppUrl = "https://script.google.com/macros/s/AKfycbxDy3Mr-4F0noAUDV2FDgjLrbtackQKbZr6OqTX3giFTt0WsI_F9Cs4IzTn7yvYOo4fwA/exec"; 
+
+if (!namaTamu) {
+    document.body.innerHTML = "<h1>Akses Ditolak: Nama tamu tidak ditemukan di link.</h1>";
+} else {
+    // Jalankan validasi ke Google Sheets secara real-time
+    fetch(`${webAppUrl}?nama=${encodeURIComponent(namaTamu)}&device=${deviceId}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "allowed") {
+                console.log("Akses diizinkan, selamat datang!");
+                // Jalankan fungsi atau tampilkan animasi undangan Anda di sini
+            } else if (data.status === "blocked") {
+                document.body.innerHTML = `<h1>Akses Ditolak</h1><p>${data.message}</p>`;
+            } else {
+                document.body.innerHTML = "<h1>Akses Ditolak: Anda tidak terdaftar dalam undangan ini.</h1>";
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            document.body.innerHTML = "<h1>Gagal memvalidasi undangan. Coba lagi nanti.</h1>";
+        });
+}
+</script>
 </body>
 </html>
