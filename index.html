@@ -1540,12 +1540,12 @@ const webAppUrl = "https://script.google.com/macros/s/AKfycbxDy3Mr-4F0noAUDV2FDg
         
 window.aksesUndangan = false;
 
-const namaTamuCover = new URLSearchParams(window.location.search)
-    .get("to")
-    ?.trim();
+//const namaTamuCover = new URLSearchParams(window.location.search)
+  //  .get("to")
+ //   ?.trim();
 
 if (namaTamuCover) {
-    fetch(`${webAppUrl}?nama=${encodeURIComponent(namaTamuCover)}&device=${deviceId}`)
+    fetch(`${webAppUrl}?nama=${encodeURIComponent(namaTamu)}&device=${deviceId}`)
         .then(response => response.json())
         .then(data => {
             window.aksesUndangan = data.status === "allowed";
