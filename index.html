@@ -1395,7 +1395,8 @@ section.visible {
     const musicBtn = document.getElementById('music-btn');
     let isPlaying = false;
 
-    function bukaUndangan() {
+   async function bukaUndangan() {
+       const diizinkan = await validasiUndangan;
         if (window.aksesUndangan !== true) {
     alert("Akses ditolak. Nama tamu tidak terdaftar dalam undangan.");
     return;
@@ -1540,21 +1541,30 @@ const webAppUrl = "https://script.google.com/macros/s/AKfycbxDy3Mr-4F0noAUDV2FDg
         
 window.aksesUndangan = false;
 
-//const namaTamuCover = new URLSearchParams(window.location.search)
-  //  .get("to")
- //   ?.trim();
+const namaTamuValidasi = new URLSearchParams(window.location.search)
+    .get("to")
+    ?.trim();
 
-if (namaTamuCover) {
-    fetch(`${webAppUrl}?nama=${encodeURIComponent(namaTamu)}&device=${deviceId}`)
-        .then(response => response.json())
-        .then(data => {
-            window.aksesUndangan = data.status === "allowed";
-        })
-        .catch(error => {
-            console.error("Validasi undangan gagal:", error);
-            window.aksesUndangan = false;
-        });
-}
+window.validasiUndangan = (async () => {
+    if (!namaTamuValidasi) return false;
+
+    try {
+        const response = await fetch(
+            `${webAppUrl}?nama=${encodeURIComponent(namaTamuValidasi)}&device=${deviceId}`
+        );
+        const data = await response.json();
+
+        console.log("Respons validasi:", data);
+
+        window.aksesUndangan =
+            String(data.status ?? "").trim().toLowerCase() === "allowed";
+
+        return window.aksesUndangan;
+    } catch (error) {
+        console.error("Validasi undangan gagal:", error);
+        return false;
+    }
+})();
 
 </script>
 </body>
