@@ -1454,6 +1454,7 @@ section.visible {
         updateCountdown();
         setInterval(updateCountdown, 1000);
     </script>
+    
     <script>
     // Force scroll ke paling atas saat halaman di-reload / di-refresh
     if ('scrollRestoration' in history) {
@@ -1486,7 +1487,12 @@ function getSimpleDeviceId() {
 
 // 2. Ambil parameter nama tamu dari URL (contoh: undangan.html?to=Budi)
 const urlParams = new URLSearchParams(window.location.search);
-const namaTamu = urlParams.get('to'); 
+//const namaTamu = urlParams.get('to'); 
+        const namaTamuCover = new URLSearchParams(window.location.search).get("to");
+
+    if (namaTamuCover?.trim()) {
+        document.getElementById("nama-tamu").textContent = namaTamuCover.trim();
+    }
 const deviceId = getSimpleDeviceId();
 
 // Ganti dengan URL Aplikasi Web dari Google Apps Script Langkah 2
