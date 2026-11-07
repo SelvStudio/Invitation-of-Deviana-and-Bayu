@@ -1537,15 +1537,15 @@ const webAppUrl = "https://script.google.com/macros/s/AKfycbxDy3Mr-4F0noAUDV2FDg
            // document.body.innerHTML = "<h1>Gagal memvalidasi undangan. Coba lagi nanti.</h1>";
         //});
 //}
-        <script>
+        
 window.aksesUndangan = false;
 
-const namaTamuValidasi = new URLSearchParams(window.location.search)
+const namaTamuCover = new URLSearchParams(window.location.search)
     .get("to")
     ?.trim();
 
-if (namaTamuValidasi) {
-    fetch(`${webAppUrl}?nama=${encodeURIComponent(namaTamuValidasi)}&device=${deviceId}`)
+if (namaTamuCover) {
+    fetch(`${webAppUrl}?nama=${encodeURIComponent(namaTamuCover)}&device=${deviceId}`)
         .then(response => response.json())
         .then(data => {
             window.aksesUndangan = data.status === "allowed";
@@ -1555,7 +1555,7 @@ if (namaTamuValidasi) {
             window.aksesUndangan = false;
         });
 }
-</script>
+
 </script>
 </body>
 </html>
