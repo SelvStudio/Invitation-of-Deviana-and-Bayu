@@ -1009,6 +1009,10 @@ section.visible {
                     <span class="num" id="seconds">00</span>
                     <span class="label">Detik</span>
                 </div>
+                <p class="guest-name">
+                    Kepada Yth.<br />
+                    <strong id="nama-tamu">Tamu Undangan</strong>
+                    </p>
             </div>
             <button onclick="bukaUndangan()" class="btn">Buka Undangan</button>
             <p></p>
@@ -1229,6 +1233,14 @@ section.visible {
             <p class="nama">Deviana &amp; Bayu</p>
         </section>
 
+
+        <script>
+    const namaTamu = new URLSearchParams(window.location.search).get("to");
+
+    if (namaTamu?.trim()) {
+        document.getElementById("nama-tamu").textContent = namaTamu.trim();
+    }
+</script>
       <script>
     function copyText(value) {
         const text = String(value).replace(/[^0-9]/g, '');
