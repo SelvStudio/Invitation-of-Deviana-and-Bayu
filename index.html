@@ -1396,6 +1396,10 @@ section.visible {
     let isPlaying = false;
 
     function bukaUndangan() {
+        if (window.aksesUndangan !== true) {
+    alert("Akses ditolak. Nama tamu tidak terdaftar dalam undangan.");
+    return;
+}
         // 1. Putar musik
         music.play().then(() => {
             isPlaying = true;
@@ -1533,20 +1537,25 @@ const webAppUrl = "https://script.google.com/macros/s/AKfycbxDy3Mr-4F0noAUDV2FDg
            // document.body.innerHTML = "<h1>Gagal memvalidasi undangan. Coba lagi nanti.</h1>";
         //});
 //}
-        if (namaTamuCover?.trim()) {
-    fetch(`${webAppUrl}?nama=${encodeURIComponent(namaTamuCover.trim())}&device=${deviceId}`)
+        <script>
+window.aksesUndangan = false;
+
+const namaTamuValidasi = new URLSearchParams(window.location.search)
+    .get("to")
+    ?.trim();
+
+if (namaTamuValidasi) {
+    fetch(`${webAppUrl}?nama=${encodeURIComponent(namaTamuValidasi)}&device=${deviceId}`)
         .then(response => response.json())
         .then(data => {
-            if (data.status === "allowed") {
-                console.log("Akses diizinkan, selamat datang!");
-            } else {
-                console.info("Nama tamu tidak ditemukan atau akses ditolak.");
-            }
+            window.aksesUndangan = data.status === "allowed";
         })
         .catch(error => {
-            console.error("Gagal memvalidasi undangan:", error);
+            console.error("Validasi undangan gagal:", error);
+            window.aksesUndangan = false;
         });
 }
+</script>
 </script>
 </body>
 </html>
